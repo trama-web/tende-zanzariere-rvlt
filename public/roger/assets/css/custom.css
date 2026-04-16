@@ -170,6 +170,11 @@
   text-wrap: balance;
 }
 
+.ptf-post-title svg,
+.ptf-work-title br {
+  display: none;
+}
+
 .ptf-post-thumbnail img,
 .ptf-work-thumbnail img {
   width: 100%;
@@ -245,6 +250,49 @@
   height: 68px;
 }
 
+html.native-scroll-mode,
+body.native-scroll-mode {
+  overflow: auto !important;
+}
+
+html.native-scroll-mode {
+  scroll-behavior: smooth;
+}
+
+body.native-scroll-mode .ptf-fullpage-slider {
+  height: auto;
+  min-height: 100vh;
+  scroll-snap-type: y proximity;
+}
+
+body.native-scroll-mode .ptf-fullpage-slider .ptf-section,
+body.native-scroll-mode .pp-section {
+  position: relative !important;
+  inset: auto !important;
+  top: auto !important;
+  left: auto !important;
+  display: flex;
+  height: auto !important;
+  min-height: 100svh;
+  scroll-snap-align: start;
+  transform: none !important;
+}
+
+body.native-scroll-mode .ptf-fullpage-slider .ptf-section__vertical-align {
+  overflow: visible;
+  min-height: 100svh;
+}
+
+body.native-scroll-mode .pp-scrollable {
+  overflow: visible !important;
+  height: auto !important;
+}
+
+body.native-scroll-mode .ptf-footer--fixed {
+  position: relative;
+  padding-top: 2rem;
+}
+
 @media only screen and (max-width: 991px) {
   .hero-side-copy {
     margin-left: 0;
@@ -273,6 +321,103 @@
   .ptf-section[data-anchor="Recensioni"] .proof-grid {
     grid-template-columns: 1fr;
   }
+
+  .ptf-fullpage-slider {
+    height: auto;
+  }
+
+  .ptf-fullpage-slider .ptf-section__content {
+    padding-top: 8.5rem;
+    padding-bottom: 5rem;
+  }
+
+  .ptf-timeline-slider {
+    overflow: hidden;
+  }
+
+  .ptf-timeline-item__title {
+    font-size: 1.45rem;
+    line-height: 1.25;
+  }
+
+  .ptf-timeline-item__text {
+    padding-right: 0;
+  }
+
+  .ptf-testimonial-slider {
+    margin-left: 0;
+  }
+
+  .ptf-testimonial-item {
+    padding-left: 0;
+  }
+
+  .ptf-testimonial-item__footer {
+    margin-top: 3rem;
+  }
+
+  .ptf-testimonial-item__navigation {
+    position: static;
+    justify-content: flex-start;
+    margin-top: 1.5rem;
+  }
+
+  .ptf-work {
+    display: grid;
+    gap: 1rem;
+    width: 100%;
+    padding: 0;
+    white-space: normal;
+  }
+
+  .ptf-work-content span {
+    margin-bottom: 0.5rem;
+  }
+
+  .ptf-work-title {
+    font-size: 1.6rem;
+    line-height: 1.15;
+  }
+
+  .ptf-work-thumbnail {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    transform: none;
+    opacity: 1;
+    border-radius: 1.25rem;
+  }
+
+  .ptf-portfolio-marquee,
+  .ptf-portfolio-marquee__original,
+  .ptf-portfolio-marquee__copy {
+    display: grid;
+    position: static;
+    width: 100%;
+    height: auto;
+    gap: 2rem;
+    animation: none;
+    white-space: normal;
+  }
+
+  .ptf-portfolio-marquee__copy {
+    margin-top: 2rem;
+  }
+
+  .ptf-post--masonry .ptf-post-thumbnail + .ptf-post-content {
+    padding-top: 1.25rem;
+  }
+
+  .ptf-post-title {
+    line-height: 1.15;
+  }
+
+  .ptf-footer-locales {
+    display: none;
+  }
 }
 
 @media only screen and (max-width: 767px) {
@@ -293,6 +438,67 @@
     font-size: 1.2rem;
   }
 
+  .ptf-fullpage-slider .ptf-section__content {
+    padding-top: 7.5rem;
+    padding-bottom: 4.25rem;
+  }
+
+  .ptf-fullpage-slider .container {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
+  .ptf-section h1,
+  .ptf-section h2 {
+    line-height: 1.05;
+  }
+
+  .ptf-section[data-anchor="Home"] h1 {
+    max-width: 10ch;
+  }
+
+  .ptf-video-button {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  .ptf-cite {
+    height: auto;
+    padding-right: 0;
+    white-space: normal;
+    font-size: 1.5rem;
+  }
+
+  .ptf-cite svg {
+    display: none;
+  }
+
+  .timeline-badge {
+    min-width: 56px;
+    height: 56px;
+  }
+
+  .ptf-work-title {
+    font-size: 1.35rem;
+  }
+
+  .ptf-section[data-anchor="Zone"] .ptf-post-title {
+    font-size: 1.1rem;
+  }
+
+  .ptf-testimonial-item__meta {
+    height: auto;
+    text-align: left;
+  }
+
+  .ptf-testimonial-item__meta svg {
+    display: none;
+  }
+
+  .ptf-testimonial-item__meta h6 {
+    font-size: 1.6rem;
+  }
+
   .ptf-post-meta {
     gap: 0.4rem 0.75rem;
   }
@@ -304,5 +510,14 @@
 
   .ptf-section[data-anchor="Contatti"] .ptf-form-row.two-col {
     grid-template-columns: 1fr;
+  }
+
+  .ptf-footer {
+    display: block;
+    padding: 0 1.25rem 1.25rem;
+  }
+
+  .ptf-footer-copyright {
+    font-size: 0.82rem;
   }
 }
