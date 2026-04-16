@@ -3,3 +3,4 @@ dist
 template_roger
 .DS_Store
 *.log
+.vercel

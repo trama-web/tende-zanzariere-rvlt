@@ -1,73 +1,50 @@
-# React + TypeScript + Vite
+# Tende Zanzariere RV/LT
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Landing page statica per RV/LT, adattata a partire dal template HTML `Roger` e rifinita per presentare servizi di tende da sole, zanzariere, tapparelle, automazioni, porte e riparazioni.
 
-Currently, two official plugins are available:
+Repository GitHub:
+`https://github.com/trama-web/tende-zanzariere-rvlt`
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Stack
 
-## React Compiler
+- Vite
+- TypeScript
+- HTML statico in `index.html`
+- Asset del template in `public/roger/assets`
+- Asset fotografici e placeholder in `public/`
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Struttura
 
-## Expanding the ESLint configuration
+- `index.html`: landing principale con tutte le sezioni e gli script del template
+- `public/roger/assets/css/custom.css`: override visivi e responsive
+- `public/`: immagini del sito e placeholder SVG
+- `src/`: codice React originario del progetto, non più usato per la homepage corrente
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Avvio locale
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Build produzione:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run build
 ```
+
+Preview locale della build:
+
+```bash
+npm run preview
+```
+
+## Note pratiche
+
+- La homepage corrente usa il template HTML direttamente, non il rendering React.
+- Alcune immagini sono ancora placeholder o asset temporanei da sostituire con materiale definitivo.
+- Il form contatti usa `formsubmit` come soluzione rapida.
+
+## Deploy
+
+Il progetto è pensato per essere distribuito come sito statico. Il deploy può essere fatto direttamente su Vercel.
