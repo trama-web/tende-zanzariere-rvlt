@@ -1,0 +1,26 @@
+<svg width="1600" height="1000" viewBox="0 0 1600 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1000" fill="#15181D"/>
+  <rect x="72" y="72" width="1456" height="856" rx="44" fill="url(#paint0_linear)"/>
+  <path d="M240 700C372 548 503 472 634 472C770 472 842 608 978 608C1100 608 1180 514 1360 330" stroke="#D6A04A" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="634" cy="472" r="18" fill="#D6A04A"/>
+  <circle cx="978" cy="608" r="18" fill="#F4F1EA"/>
+  <circle cx="1188" cy="506" r="18" fill="#8CC0A7"/>
+  <rect x="172" y="182" width="318" height="186" rx="28" fill="#F4F1EA" fill-opacity="0.08"/>
+  <rect x="212" y="232" width="180" height="18" rx="9" fill="#D6A04A"/>
+  <rect x="212" y="272" width="214" height="18" rx="9" fill="#F4F1EA" fill-opacity="0.48"/>
+  <rect x="212" y="312" width="148" height="18" rx="9" fill="#F4F1EA" fill-opacity="0.22"/>
+  <rect x="1058" y="650" width="318" height="176" rx="28" fill="#F4F1EA" fill-opacity="0.08"/>
+  <rect x="1098" y="698" width="138" height="18" rx="9" fill="#8CC0A7"/>
+  <rect x="1098" y="736" width="192" height="18" rx="9" fill="#F4F1EA" fill-opacity="0.42"/>
+  <rect x="1098" y="774" width="122" height="18" rx="9" fill="#F4F1EA" fill-opacity="0.2"/>
+  <text x="172" y="528" fill="#F4F1EA" font-family="Poppins, Arial, sans-serif" font-size="74" font-weight="700" letter-spacing="8">RV/LT</text>
+  <text x="172" y="602" fill="#F4F1EA" fill-opacity="0.72" font-family="Poppins, Arial, sans-serif" font-size="34" font-weight="500">Placeholder editoriale per</text>
+  <text x="172" y="648" fill="#F4F1EA" fill-opacity="0.72" font-family="Poppins, Arial, sans-serif" font-size="34" font-weight="500">casi studio, gallery o FAQ.</text>
+  <defs>
+    <linearGradient id="paint0_linear" x1="170" y1="116" x2="1460" y2="920" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#222833"/>
+      <stop offset="0.55" stop-color="#1A2128"/>
+      <stop offset="1" stop-color="#243A31"/>
+    </linearGradient>
+  </defs>
+</svg>
