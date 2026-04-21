@@ -532,46 +532,50 @@
     <script src="/roger/assets/vendors/jquery-3.5.1.min.js"></script>
     <script src="/roger/assets/scripts/ptf-plugins.min.js"></script>
     <script src="/roger/assets/scripts/ptf-helpers.js"></script>
-    <script src="/roger/assets/scripts/ptf-controllers.min.js"></script>
     <script>
+      // Neutralize pagepiling on mobile BEFORE ptf-controllers.min.js runs,
+      // otherwise its touch handlers preventDefault and block native scroll.
       (function () {
         var MOBILE_BREAKPOINT = 1200;
-        var slider = document.querySelector(".ptf-fullpage-slider");
+        if (window.innerWidth >= MOBILE_BREAKPOINT) return;
+        if (!window.jQuery || !jQuery.fn || !jQuery.fn.pagepiling) return;
 
-        function disableTemplateFullpage() {
-          if (!slider || !window.jQuery || !jQuery.fn.pagepiling) return;
+        var noop = function () { return this; };
+        jQuery.fn.pagepiling = noop;
+        jQuery.fn.pagepiling.destroy = function () {};
+        jQuery.fn.pagepiling.moveSectionUp = function () {};
+        jQuery.fn.pagepiling.moveSectionDown = function () {};
+        jQuery.fn.pagepiling.moveTo = function () {};
+        jQuery.fn.pagepiling.setAllowScrolling = function () {};
 
-          try {
-            jQuery.fn.pagepiling.destroy("all");
-          } catch (error) {
-          }
-
-          document.documentElement.classList.remove("pp-easing");
+        document.documentElement.classList.add("native-scroll-mode");
+        if (document.body) document.body.classList.add("native-scroll-mode");
+      })();
+    </script>
+    <script src="/roger/assets/scripts/ptf-controllers.min.js"></script>
+    <script>
+      // Safety net: clear any inline overflow:hidden that may have been set
+      // on html/body by other scripts, so native scrolling keeps working.
+      (function () {
+        var MOBILE_BREAKPOINT = 1200;
+        function clearScrollLocks() {
+          if (window.innerWidth >= MOBILE_BREAKPOINT) return;
           document.documentElement.style.overflow = "";
+          document.documentElement.style.height = "";
           document.body.style.overflow = "";
+          document.body.style.height = "";
           document.body.style.touchAction = "";
-          slider.style.overflow = "";
-        }
-
-        function syncScrollMode() {
-          if (window.innerWidth < MOBILE_BREAKPOINT) {
-            disableTemplateFullpage();
-            document.documentElement.classList.add("native-scroll-mode");
-            document.body.classList.add("native-scroll-mode");
-            return;
+          var slider = document.querySelector(".ptf-fullpage-slider");
+          if (slider) {
+            slider.style.transform = "";
+            slider.style.overflow = "";
+            slider.style.height = "";
           }
-
-          document.documentElement.classList.remove("native-scroll-mode");
-          document.body.classList.remove("native-scroll-mode");
         }
-
-        syncScrollMode();
-        window.addEventListener("resize", syncScrollMode, { passive: true });
-        window.addEventListener("load", function () {
-          syncScrollMode();
-          window.setTimeout(syncScrollMode, 200);
-          window.setTimeout(syncScrollMode, 800);
-        });
+        clearScrollLocks();
+        window.addEventListener("load", clearScrollLocks);
+        window.setTimeout(clearScrollLocks, 300);
+        window.setTimeout(clearScrollLocks, 1000);
       })();
     </script>
   </body>

@@ -467,8 +467,12 @@ body.native-scroll-mode .ptf-footer--fixed {
   html,
   body {
     overflow: auto !important;
+    overflow-x: hidden !important;
     height: auto !important;
-    touch-action: auto !important;
+    min-height: 100% !important;
+    touch-action: pan-y !important;
+    -webkit-overflow-scrolling: touch;
+    position: static !important;
   }
   html {
     scroll-behavior: smooth;
