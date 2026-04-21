@@ -307,6 +307,160 @@ body.native-scroll-mode .ptf-footer--fixed {
   padding-top: 2rem;
 }
 
+/* Carosello servizi — scroll orizzontale a card */
+.services-carousel {
+  position: relative;
+}
+
+.services-carousel__track {
+  display: flex;
+  gap: 1.25rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 0.25rem 0.25rem 1rem;
+  margin: 0 -0.25rem;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.35) transparent;
+}
+
+.services-carousel__track::-webkit-scrollbar {
+  height: 6px;
+}
+
+.services-carousel__track::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+}
+
+.services-carousel__card {
+  flex: 0 0 78%;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1.1rem;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  scroll-snap-align: start;
+}
+
+.services-carousel__thumb {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.services-carousel__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.services-carousel__body {
+  padding: 1rem 1.1rem 1.2rem;
+}
+
+.services-carousel__body h4 {
+  margin: 0 0 0.45rem;
+  color: #fff;
+  font-size: 1.02rem;
+  line-height: 1.25;
+}
+
+.services-carousel__body p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.services-carousel__hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-top: 0.25rem;
+  color: var(--ptf-color-accent);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+  .services-carousel__card {
+    flex-basis: 60%;
+  }
+}
+
+@media (min-width: 992px) {
+  .services-carousel__card {
+    flex-basis: 62%;
+    max-width: 340px;
+  }
+}
+
+/* Timeline compatta del metodo */
+.method-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.method-steps > li {
+  padding: 1rem 1.1rem 1.15rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.method-steps__num {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  color: var(--ptf-color-accent);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  font-size: 0.8rem;
+}
+
+.method-steps__body h4 {
+  margin: 0 0 0.35rem;
+  color: #fff;
+  font-size: 0.98rem;
+  line-height: 1.2;
+}
+
+.method-steps__body p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+@media (max-width: 1199px) {
+  .method-steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 575px) {
+  .method-steps {
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
+  }
+  .method-steps > li {
+    padding: 0.85rem 1rem 0.95rem;
+  }
+}
+
+/* Sfondo scuro del navbar per leggibilità del logo negativo */
+.ptf-navbar--fixed .ptf-navbar-background {
+  background: rgba(12, 14, 17, 0.72);
+  backdrop-filter: blur(10px);
+}
+
 /* Fallback indipendente dal JS: forza lo scroll nativo su mobile/tablet
    anche se pagepiling si inizializza dopo il nostro disable. */
 @media only screen and (max-width: 1199px) {
