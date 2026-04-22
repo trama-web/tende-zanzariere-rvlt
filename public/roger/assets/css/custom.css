@@ -741,8 +741,9 @@ body.native-scroll-mode .ptf-footer--fixed {
 }
 
 /* ===== Hero slideshow ===== */
+/* NOTE: do NOT set position on .hero-section — .pp-section already sets
+   position:absolute on desktop. Overriding it breaks pagepiling. */
 .hero-section {
-  position: relative;
   overflow: hidden;
   background-color: #0c0e11;
 }
@@ -752,6 +753,7 @@ body.native-scroll-mode .ptf-footer--fixed {
   inset: 0;
   z-index: 0;
   pointer-events: none;
+  overflow: hidden;
 }
 
 .hero-slideshow img {
@@ -805,6 +807,15 @@ body.native-scroll-mode .ptf-footer--fixed {
   }
   .hero-slideshow img:first-child {
     opacity: 1;
+  }
+}
+
+/* On mobile pagepiling is disabled and .pp-section is never applied,
+   so we need an explicit positioning context for the absolute slideshow. */
+@media (max-width: 1199px) {
+  .hero-section {
+    position: relative;
+    min-height: 100vh;
   }
 }
 
