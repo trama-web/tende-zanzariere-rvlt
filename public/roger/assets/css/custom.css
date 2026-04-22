@@ -1,5 +1,14 @@
 :root {
   --ptf-color-accent: #9cc3f2;
+  /* Replace all the "black" of the theme with brand navy #263955 */
+  --ptf-color-2: #263955;
+  --ptf-color-3: #263955;
+  --ptf-color-6: rgba(38, 57, 85, 0.15);
+}
+
+body,
+html {
+  background-color: #263955;
 }
 
 .site-wordmark {
@@ -247,7 +256,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(12, 14, 17, 0.36), rgba(12, 14, 17, 0.58));
+  background: linear-gradient(180deg, rgba(38, 57, 85, 0.36), rgba(38, 57, 85, 0.58));
   pointer-events: none;
 }
 
@@ -457,7 +466,7 @@ body.native-scroll-mode .ptf-footer--fixed {
 
 /* Sfondo scuro del navbar per leggibilità del logo negativo */
 .ptf-navbar--fixed .ptf-navbar-background {
-  background: rgba(12, 14, 17, 0.72);
+  background: rgba(38, 57, 85, 0.72);
   backdrop-filter: blur(10px);
 }
 
@@ -745,7 +754,7 @@ body.native-scroll-mode .ptf-footer--fixed {
    position:absolute on desktop. Overriding it breaks pagepiling. */
 .hero-section {
   overflow: hidden;
-  background-color: #0c0e11;
+  background-color: #263955;
 }
 
 .hero-slideshow {
@@ -788,9 +797,9 @@ body.native-scroll-mode .ptf-footer--fixed {
   z-index: 1;
   background: linear-gradient(
     180deg,
-    rgba(12, 14, 17, 0.55) 0%,
-    rgba(12, 14, 17, 0.35) 45%,
-    rgba(12, 14, 17, 0.7) 100%
+    rgba(38, 57, 85, 0.55) 0%,
+    rgba(38, 57, 85, 0.35) 45%,
+    rgba(38, 57, 85, 0.7) 100%
   );
   pointer-events: none;
 }
@@ -826,9 +835,9 @@ body.native-scroll-mode .ptf-footer--fixed {
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(12, 14, 17, 0.58) 0%,
-    rgba(12, 14, 17, 0.35) 45%,
-    rgba(12, 14, 17, 0.72) 100%
+    rgba(38, 57, 85, 0.58) 0%,
+    rgba(38, 57, 85, 0.35) 45%,
+    rgba(38, 57, 85, 0.72) 100%
   );
   pointer-events: none;
   z-index: 1;
@@ -855,4 +864,56 @@ body.native-scroll-mode .ptf-footer--fixed {
 .headline-light {
   font-weight: 300;
   opacity: 0.82;
+}
+
+/* ===== Mobile-only content rules (phones + small tablets) ===== */
+.mobile-only { display: none; }
+
+@media (max-width: 991px) {
+  /* Toggle helper visibility */
+  .mobile-only { display: inline-flex; }
+
+  /* Home: shrink the enormous H1 */
+  .hero-section h1 {
+    font-size: clamp(2.3rem, 11vw, 3.6rem);
+    line-height: 1.05;
+  }
+
+  /* Home: remove the long side copy "Installazione, sostituzione..." */
+  .hero-side-copy {
+    display: none !important;
+  }
+
+  /* Home: compact gap before the call CTA */
+  .hero-mobile-cta {
+    margin-top: 1.25rem;
+  }
+  .hero-mobile-cta .ptf-btn__icon {
+    margin-right: 0.5rem;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  /* Cosa facciamo: smaller headlines */
+  #Servizi h2,
+  #Servizi .headline-stack {
+    font-size: clamp(1.9rem, 8vw, 2.6rem);
+    line-height: 1.12;
+  }
+
+  /* Cosa facciamo: drop the "Lavoriamo per migliorare..." paragraph */
+  #Servizi .servizi-intro-row,
+  #Servizi .servizi-intro-gap {
+    display: none !important;
+  }
+
+  /* Cosa facciamo: drop the "Cosa offriamo" label only (keep intro line) */
+  #Servizi .cosa-offriamo-label {
+    display: none !important;
+  }
+
+  /* Recensioni: drop the "Scegliere il fornitore..." paragraph */
+  #Recensioni .proof-copy {
+    display: none !important;
+  }
 }
