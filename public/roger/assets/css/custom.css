@@ -1,14 +1,14 @@
 :root {
   --ptf-color-accent: #9cc3f2;
-  /* Replace all the "black" of the theme with brand navy #263955 */
-  --ptf-color-2: #263955;
-  --ptf-color-3: #263955;
-  --ptf-color-6: rgba(38, 57, 85, 0.15);
+  /* Replace all the "black" of the theme with brand navy #162435 */
+  --ptf-color-2: #162435;
+  --ptf-color-3: #162435;
+  --ptf-color-6: rgba(22, 36, 53, 0.15);
 }
 
 body,
 html {
-  background-color: #263955;
+  background-color: #162435;
 }
 
 .site-wordmark {
@@ -256,7 +256,7 @@ html {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(38, 57, 85, 0.36), rgba(38, 57, 85, 0.58));
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.36), rgba(0, 0, 0, 0.58));
   pointer-events: none;
 }
 
@@ -466,7 +466,7 @@ body.native-scroll-mode .ptf-footer--fixed {
 
 /* Sfondo scuro del navbar per leggibilità del logo negativo */
 .ptf-navbar--fixed .ptf-navbar-background {
-  background: rgba(38, 57, 85, 0.72);
+  background: rgba(22, 36, 53, 0.72);
   backdrop-filter: blur(10px);
 }
 
@@ -754,7 +754,7 @@ body.native-scroll-mode .ptf-footer--fixed {
    position:absolute on desktop. Overriding it breaks pagepiling. */
 .hero-section {
   overflow: hidden;
-  background-color: #263955;
+  background-color: #162435;
 }
 
 .hero-slideshow {
@@ -797,9 +797,9 @@ body.native-scroll-mode .ptf-footer--fixed {
   z-index: 1;
   background: linear-gradient(
     180deg,
-    rgba(38, 57, 85, 0.55) 0%,
-    rgba(38, 57, 85, 0.35) 45%,
-    rgba(38, 57, 85, 0.7) 100%
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(0, 0, 0, 0.35) 45%,
+    rgba(0, 0, 0, 0.7) 100%
   );
   pointer-events: none;
 }
@@ -835,9 +835,9 @@ body.native-scroll-mode .ptf-footer--fixed {
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(38, 57, 85, 0.58) 0%,
-    rgba(38, 57, 85, 0.35) 45%,
-    rgba(38, 57, 85, 0.72) 100%
+    rgba(0, 0, 0, 0.58) 0%,
+    rgba(0, 0, 0, 0.35) 45%,
+    rgba(0, 0, 0, 0.72) 100%
   );
   pointer-events: none;
   z-index: 1;
