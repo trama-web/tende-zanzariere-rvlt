@@ -93,7 +93,7 @@
 
     <main class="ptf-main">
       <div class="ptf-fullpage-slider" data-loop-top="" data-loop-bottom="" data-speed="800">
-        <div class="ptf-section pp-scrollable hero-section" data-anchor="Home">
+        <div class="ptf-section pp-scrollable hero-section" data-anchor="Home" id="Home">
           <div class="hero-slideshow" aria-hidden="true">
             <img src="/automazione_remote.jpg" alt="" />
             <img src="/hero_patio.jpg" alt="" />
@@ -135,7 +135,7 @@
           </div>
         </div>
 
-        <div class="ptf-section pp-scrollable" data-anchor="Servizi">
+        <div class="ptf-section pp-scrollable" data-anchor="Servizi" id="Servizi">
           <div class="ptf-section__vertical-align">
             <div class="ptf-section__content">
               <div class="container">
@@ -195,7 +195,7 @@
           </div>
         </div>
 
-        <div class="ptf-section pp-scrollable" data-anchor="ServiziDettaglio">
+        <div class="ptf-section pp-scrollable section-azure" data-anchor="ServiziDettaglio" id="ServiziDettaglio">
           <div class="ptf-section__vertical-align">
             <div class="ptf-section__content">
               <div class="container">
@@ -268,9 +268,10 @@
           </div>
         </div>
 
-        <div class="ptf-section pp-scrollable" data-anchor="Processo">
+        <div class="ptf-section pp-scrollable section-image" data-anchor="Processo" id="Processo">
           <div class="ptf-section__vertical-align">
             <div class="ptf-section__content">
+              <div class="ptf-section__ken-burn-background"><img src="/riparazione_facade.jpg" alt="Installazione di una tenda all'esterno — RV/LT" /></div>
               <div class="container">
                 <div class="row align-items-center" style="--bs-gutter-y: 30px;">
                   <div class="col-md-7">
@@ -339,10 +340,9 @@
           </div>
         </div>
 
-        <div class="ptf-section pp-scrollable" data-anchor="Recensioni">
+        <div class="ptf-section pp-scrollable section-azure" data-anchor="Recensioni" id="Recensioni">
           <div class="ptf-section__vertical-align">
             <div class="ptf-section__content">
-              <div class="ptf-section__ken-burn-background"><img src="/riparazione_facade.jpg" alt="Recensioni e assistenza" /></div>
               <div class="container">
                 <div class="row" style="--bs-gutter-y: 70px;">
                   <div class="col-lg-6">
@@ -435,7 +435,7 @@
           </div>
         </div>
 
-        <div class="ptf-section pp-scrollable" data-anchor="Contatti">
+        <div class="ptf-section pp-scrollable" data-anchor="Contatti" id="Contatti">
           <div class="ptf-section__vertical-align">
             <div class="ptf-section__content">
               <div class="ptf-section__ken-burn-background"><img src="/automazione_garage.jpg" alt="Contatti RV LT" /></div>
@@ -586,6 +586,40 @@
         window.addEventListener("load", clearScrollLocks);
         window.setTimeout(clearScrollLocks, 300);
         window.setTimeout(clearScrollLocks, 1000);
+      })();
+
+      // Mobile-only: pagepiling is stubbed, so the menu anchors need to do
+      // the scrolling themselves. Also close the offcanvas menu on click.
+      (function () {
+        var MOBILE_BREAKPOINT = 1200;
+        if (window.innerWidth >= MOBILE_BREAKPOINT) return;
+
+        var navbarOffset = 80;
+        var ANCHORS = ["Home", "Servizi", "ServiziDettaglio", "Processo", "Recensioni", "Contatti"];
+
+        function scrollToAnchor(name) {
+          var target = document.getElementById(name);
+          if (!target) return;
+          var top = target.getBoundingClientRect().top + window.scrollY - navbarOffset;
+          window.scrollTo({ top: top < 0 ? 0 : top, behavior: "smooth" });
+        }
+
+        function closeOffcanvas() {
+          var closer = document.querySelector(".js-offcanvas-menu-close");
+          if (closer) closer.click();
+        }
+
+        document.addEventListener("click", function (e) {
+          var link = e.target.closest && e.target.closest('a[href^="#"]');
+          if (!link) return;
+          var href = link.getAttribute("href") || "";
+          var name = href.slice(1);
+          if (!name || ANCHORS.indexOf(name) === -1) return;
+          e.preventDefault();
+          closeOffcanvas();
+          window.setTimeout(function () { scrollToAnchor(name); }, 120);
+          if (history.replaceState) history.replaceState(null, "", "#" + name);
+        }, true);
       })();
     </script>
   </body>
