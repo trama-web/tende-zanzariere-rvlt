@@ -69,7 +69,7 @@ function App() {
         headline="COMANDO CON UN TOCCO"
         description="Motori silenziosi per tapparelle e tende, centralini per serrande, telecomandi e integrazione con domotica."
         cta="Parliamo del tuo progetto"
-        image="/automazione_remote.jpg"
+        image="/motorizzazioni_tenda.png"
         secondaryImage="/automazione_garage.jpg"
         layout="left-tall"
         zIndex={50}
@@ -80,7 +80,7 @@ function App() {
         headline="INGRESSO SU MISURA"
         description="Porte blindate e d'arredo, vetrate scorrevoli e sistemi di chiusura personalizzati per stile e sicurezza."
         cta="Richiedi un preventivo"
-        image="/porte_entrance.jpg"
+        image="/porte_su_misura.png"
         layout="left-wide"
         zIndex={60}
       />

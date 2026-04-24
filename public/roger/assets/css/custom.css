@@ -841,18 +841,39 @@ body.native-scroll-mode .ptf-footer--fixed {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0.58) 0%,
-    rgba(0, 0, 0, 0.35) 45%,
-    rgba(0, 0, 0, 0.72) 100%
-  );
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.76) 0%, rgba(0, 0, 0, 0.58) 42%, rgba(0, 0, 0, 0.68) 100%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.64) 0%, rgba(0, 0, 0, 0.42) 45%, rgba(0, 0, 0, 0.78) 100%);
   pointer-events: none;
   z-index: 1;
 }
 
 .section-image .ptf-section__ken-burn-background img {
+  filter: saturate(0.82) contrast(1.04) brightness(0.82);
   z-index: 0;
+}
+
+.section-image .ptf-animate-element {
+  border-radius: 1.25rem;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.48);
+}
+
+.section-image .ptf-animate-element > p,
+.section-image .proof-copy {
+  display: inline-block;
+  padding: 1rem 1.15rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 1rem;
+  background: rgba(7, 12, 18, 0.48);
+  backdrop-filter: blur(6px);
+}
+
+.section-image .ptf-animate-element > p {
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.section-image .proof-copy p {
+  color: rgba(255, 255, 255, 0.84);
 }
 
 /* ===== Section eyebrow + headline hierarchy ===== */

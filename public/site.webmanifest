@@ -1,0 +1,19 @@
+{
+  "name": "RV/LT Tende e Zanzariere",
+  "short_name": "RV/LT",
+  "description": "Tende, zanzariere, tapparelle, serrande, motorizzazioni e porte su misura nella provincia di Teramo.",
+  "lang": "it-IT",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#263955",
+  "theme_color": "#263955",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
